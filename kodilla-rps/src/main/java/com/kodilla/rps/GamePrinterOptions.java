@@ -1,0 +1,9 @@
+package com.kodilla.rps;
+
+public enum GamePrinterOptions {
+    GAME_PRINTER_OPTIONS_KAMIEN,
+    GAME_PRINTER_OPTIONS_PAPIER,
+    GAME_PRINTER_OPTIONS_NOZYCE,
+    GAME_PRINTER_OPTIONS_NEW,
+    GAME_PRINTER_OPTIONS_EXIT
+}
