@@ -1,8 +1,7 @@
-package stream.forum;
+package com.kodilla.stream.forum;
 
 import org.junit.Assert;
 import org.junit.Test;
-import com.kodilla.stream.forum.ForumUser;
 
 
 public class ForumUserTestSuite {

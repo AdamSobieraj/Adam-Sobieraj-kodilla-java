@@ -1,9 +1,5 @@
-package stream.portfolio;
+package com.kodilla.stream.portfolio;
 
-import com.kodilla.stream.portfolio.Board;
-import com.kodilla.stream.portfolio.Task;
-import com.kodilla.stream.portfolio.TaskList;
-import com.kodilla.stream.portfolio.User;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,10 +1,7 @@
-package stream.world;
+package com.kodilla.stream.world;
 
 import org.junit.Assert;
 import org.junit.Test;
-import com.kodilla.stream.world.Continent;
-import com.kodilla.stream.world.Country;
-import com.kodilla.stream.world.World;
 
 import java.math.BigDecimal;
 

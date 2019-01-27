@@ -1,11 +1,7 @@
-package stream.sand;
+package com.kodilla.stream.sand;
 
 import junit.framework.Assert;
 import org.junit.Test;
-import com.kodilla.stream.sand.Africa;
-import com.kodilla.stream.sand.Asia;
-import com.kodilla.stream.sand.Europe;
-import com.kodilla.stream.sand.SandStorage;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
