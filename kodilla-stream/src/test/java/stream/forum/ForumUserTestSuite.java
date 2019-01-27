@@ -2,7 +2,7 @@ package stream.forum;
 
 import org.junit.Assert;
 import org.junit.Test;
-import streamNew.forum.ForumUser;
+import com.kodilla.stream.forum.ForumUser;
 
 
 public class ForumUserTestSuite {

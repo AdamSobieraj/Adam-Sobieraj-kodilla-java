@@ -3,9 +3,9 @@ package stream.invoice.simple;
 
 import org.junit.Assert;
 import org.junit.Test;
-import streamNew.invoice.simple.SimpleInvoice;
-import streamNew.invoice.simple.SimpleItem;
-import streamNew.invoice.simple.SimpleProduct;
+import com.kodilla.stream.simple.SimpleInvoice;
+import com.kodilla.stream.simple.SimpleItem;
+import com.kodilla.stream.simple.SimpleProduct;
 
 public class SimpleInvoiceTestSuite {
     @Test

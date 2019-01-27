@@ -1,4 +1,4 @@
-package streamNew.sand;
+package com.kodilla.stream.sand;
 
 import java.math.BigDecimal;
 

@@ -2,9 +2,9 @@ package stream.world;
 
 import org.junit.Assert;
 import org.junit.Test;
-import streamNew.world.Continent;
-import streamNew.world.Country;
-import streamNew.world.World;
+import com.kodilla.stream.world.Continent;
+import com.kodilla.stream.world.Country;
+import com.kodilla.stream.world.World;
 
 import java.math.BigDecimal;
 

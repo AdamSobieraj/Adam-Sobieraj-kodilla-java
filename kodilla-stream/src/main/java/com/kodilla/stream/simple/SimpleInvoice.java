@@ -1,4 +1,4 @@
-package streamNew.invoice.simple;
+package com.kodilla.stream.simple;
 
 import java.util.ArrayList;
 import java.util.List;

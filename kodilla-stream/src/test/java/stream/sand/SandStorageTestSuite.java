@@ -2,10 +2,10 @@ package stream.sand;
 
 import junit.framework.Assert;
 import org.junit.Test;
-import streamNew.sand.Africa;
-import streamNew.sand.Asia;
-import streamNew.sand.Europe;
-import streamNew.sand.SandStorage;
+import com.kodilla.stream.sand.Africa;
+import com.kodilla.stream.sand.Asia;
+import com.kodilla.stream.sand.Europe;
+import com.kodilla.stream.sand.SandStorage;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
