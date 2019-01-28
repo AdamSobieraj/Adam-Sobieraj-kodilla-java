@@ -47,6 +47,7 @@ public class Game {
                     people.add(newPerson);
                     break;
                 case START_GAME:
+                    /////
                     break;
                 case FIND_PERSON:
                     findPersonPlayerOne(people);
