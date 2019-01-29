@@ -35,7 +35,7 @@ public class ConsoleManager {
                 System.out.println("Enter surname: ");
                 break;
             case PERSON_EXIST:
-                System.out.println("Person Exist");
+                System.out.println("Human Exist");
                 break;
             case PROGRAM_EXIT_MESSAGE:
                 in.close();
@@ -47,13 +47,15 @@ public class ConsoleManager {
             case NO_USER_SELECTED:
                 System.out.println("No user Selected");
                 break;
+            case TO_HOW_MANY_WINS_QUESTION:
+                System.out.println("To how many wins ?: ");
                 default:
                     System.out.println("Error");
                     break;
         }
     }
 
-    public static void hashSetObjectPrinter(HashSet<Person> toPrint){
+    public static void hashSetObjectPrinter(HashSet<Human> toPrint){
         System.out.println(toPrint);
         System.out.println();
     }
@@ -88,7 +90,7 @@ public class ConsoleManager {
         }
     }
 
-    public static void GamePrinterOptions(GamePrinterOptions gamePrinterOptions){
+    public static void gamePrinterOptions(GamePrinterOptions gamePrinterOptions){
         switch (gamePrinterOptions){
             case GAME_PRINTER_OPTIONS_KAMIEN:
                 System.out.println("Wybrano Kamien");
@@ -101,8 +103,16 @@ public class ConsoleManager {
                 break;
             case GAME_PRINTER_OPTIONS_NEW:
                 System.out.println("Reset Licznika");
+                break;
             case GAME_PRINTER_OPTIONS_EXIT:
                 System.out.println("Exit");
+                break;
+            case GAME_PRINTER_OPTIONS_PLAYER_1:
+                System.out.println("Player 1 Option");
+                break;
+            case GAME_PRINTER_OPTIONS_PLAYER_2:
+                System.out.println("Player 2 option");
+                break;
         }
 
     }

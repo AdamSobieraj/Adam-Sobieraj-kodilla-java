@@ -3,14 +3,18 @@ package com.kodilla.rps;
 import java.util.HashSet;
 
 import static com.kodilla.rps.ConsoleManager.*;
-import static com.kodilla.rps.ConsoleManager.objectPrinter;
+import static com.kodilla.rps.GamePrintSelection.*;
 import static com.kodilla.rps.MenuPrintSelection.*;
 import static com.kodilla.rps.OpenCSVReadWrite.*;
 
 public class Game {
 
-    private HashSet<Person> people = new HashSet<Person>();
-    private Person currentGamePlayer;
+    private String perName;
+    private String surname;
+    private Integer toHowManyWins;
+
+    private HashSet<Human> currentPlayer = new HashSet<>();
+    private Human currentGamePlayer;
 
     private MenuAction showMainMenuSelection() {
         messagePrinter(MAIN_MENU_PRINT);
@@ -33,7 +37,8 @@ public class Game {
     //Menu section
     public void menuRun(){
 
-        while (true){
+        boolean jumpOutOfMenu = true;
+        while (jumpOutOfMenu){
             if (currentGamePlayer == null){
                 messagePrinter(NO_USER_SELECTED);
             }else{
@@ -42,24 +47,32 @@ public class Game {
             MenuAction action = showMainMenuSelection();
             switch (action){
                 case ADD_PERSON:
-                    Person newPerson = getPerInformation();
-                    if (people.contains(newPerson)){ messagePrinter(PERSON_EXIST); }
-                    people.add(newPerson);
+                    Human newPlayer = getPerInformation();
+                    if (currentPlayer.contains(newPlayer)){ messagePrinter(PERSON_EXIST); }
+                    currentPlayer.add(newPlayer);
                     break;
                 case START_GAME:
-                    /////
+                    if (currentGamePlayer == null){
+                        messagePrinter(NO_USER_SELECTED);
+                    }else{
+                        gamePrinter(GAME_MENU_PRINT_LOGO_PRINT);
+                        messagePrinter(TO_HOW_MANY_WINS_QUESTION);
+                        toHowManyWins = gettingConsoleInputIntiger();
+                        jumpOutOfMenu = false;
+                    }
+
                     break;
                 case FIND_PERSON:
-                    findPersonPlayerOne(people);
+                    findPersonPlayerOne();
                     break;
                 case DISPLAY_ALL_PLAYERS:
-                    for (Person personFromFile: readWithOpenCSV()){
-                        people.add(personFromFile);
+                    for (Human personFromFile: readWithOpenCSV()){
+                        currentPlayer.add(personFromFile);
                     }
-                    hashSetObjectPrinter(people);
+                    hashSetObjectPrinter(currentPlayer);
                     break;
                 case SAVE_BOOK_LIST:
-                    wtriteWithOpenCSV(people);
+                    wtriteWithOpenCSV(currentPlayer);
                     break;
                 case EXIT:
                     messagePrinter(PROGRAM_EXIT_MESSAGE);
@@ -69,29 +82,37 @@ public class Game {
         }
     }
 
-    private Person getPerInformation(){
+    private Human getPerInformation(){
         messagePrinter(ENTER_NAME);
-        String perName = gettingConsoleInputString();
+        perName = gettingConsoleInputString();
         messagePrinter(ENTER_SURNAME);
-        String surname = gettingConsoleInputString();
-        String score = "0";
-
-        return new Person(perName , surname,score);
+        surname = gettingConsoleInputString();
+        return new Human(perName , surname);
     }
 
-    private void findPersonPlayerOne(HashSet<Person> currentPlayer){
+    private void findPersonPlayerOne(){
 
         messagePrinter(ENTER_NAME);
         String playerName = gettingConsoleInputString();
         messagePrinter(ENTER_SURNAME);
         String playerSurname = gettingConsoleInputString();
 
-        for (Person currPL: people){
+        for (Human currPL: this.currentPlayer){
             if (playerName.equals(currPL.getName())&&playerSurname.equals(currPL.getSurname())){
-                currentGamePlayer = new Person(currPL.getName(), currPL.getSurname(), currPL.getScore());
+                currentGamePlayer = new Human(currPL.getName(), currPL.getSurname());
             }
         }
-
     }
 
+    public String getPerName() {
+        return perName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public Integer getToHowManyWins() {
+        return toHowManyWins;
+    }
 }
