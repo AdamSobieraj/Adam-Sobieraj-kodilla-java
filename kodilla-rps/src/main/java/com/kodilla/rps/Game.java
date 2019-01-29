@@ -13,6 +13,10 @@ public class Game {
     private String surname;
     private Integer toHowManyWins;
 
+    private int getUserPoints;
+    private int getUserFails;
+    private int getUserDraw;
+
     private HashSet<Human> currentPlayer = new HashSet<>();
     private Human currentGamePlayer;
 
@@ -42,14 +46,19 @@ public class Game {
             if (currentGamePlayer == null){
                 messagePrinter(NO_USER_SELECTED);
             }else{
+                currentGamePlayer.setPoint(getUserPoints);
+                currentGamePlayer.setFails(getUserFails);
+                currentGamePlayer.setDraw(getUserDraw);
+
                 objectPrinter(currentGamePlayer);
+
             }
             MenuAction action = showMainMenuSelection();
             switch (action){
                 case ADD_PERSON:
-                    Human newPlayer = getPerInformation();
-                    if (currentPlayer.contains(newPlayer)){ messagePrinter(PERSON_EXIST); }
-                    currentPlayer.add(newPlayer);
+                    currentGamePlayer = getPerInformation();
+                    if (currentPlayer.contains(currentGamePlayer)){ messagePrinter(PERSON_EXIST); }
+                    currentPlayer.add(currentGamePlayer);
                     break;
                 case START_GAME:
                     if (currentGamePlayer == null){
@@ -114,5 +123,17 @@ public class Game {
 
     public Integer getToHowManyWins() {
         return toHowManyWins;
+    }
+
+    public void setGetUserPoints(int getUserPoints) {
+        this.getUserPoints = getUserPoints;
+    }
+
+    public void setGetUserFails(int getUserFails) {
+        this.getUserFails = getUserFails;
+    }
+
+    public void setGetUserDraw(int getUserDraw) {
+        this.getUserDraw = getUserDraw;
     }
 }

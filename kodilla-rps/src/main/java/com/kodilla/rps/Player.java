@@ -7,6 +7,8 @@ public abstract class Player {
     protected Integer move;
 
     private Integer point= new Integer(0);
+    private Integer fails= new Integer(0);
+    private Integer draw= new Integer(0);
 
     public Player(String name, String surname) {
         this.surname = surname;
@@ -38,5 +40,21 @@ public abstract class Player {
 
     public void setPoint(Integer point) {
         this.point = point;
+    }
+
+    public void setFails(Integer fails) {
+        this.fails = fails;
+    }
+
+    public void setDraw(Integer draw) {
+        this.draw = draw;
+    }
+
+    public Integer getFails() {
+        return fails;
+    }
+
+    public Integer getDraw() {
+        return draw;
     }
 }

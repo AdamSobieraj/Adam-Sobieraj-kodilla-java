@@ -6,9 +6,10 @@ import java.util.Scanner;
 public class ConsoleManager {
 
     private static Scanner in = new Scanner(System.in);
+    private static Scanner inString = new Scanner(System.in);
 
     public static String gettingConsoleInputString() {
-        String input = in.nextLine();
+        String input = inString.nextLine();
         return input;
     }
 
@@ -49,6 +50,7 @@ public class ConsoleManager {
                 break;
             case TO_HOW_MANY_WINS_QUESTION:
                 System.out.println("To how many wins ?: ");
+                break;
                 default:
                     System.out.println("Error");
                     break;
@@ -81,12 +83,14 @@ public class ConsoleManager {
                 System.out.println("3 - zagranie Nozyce");
                 System.out.println("x - exit");
                 System.out.println("n - od nowa");
+                break;
             case GAME_MENU_PRINT_SUBMENU_OPTIONS:
                 System.out.println("s - start game");
                 System.out.println("x - exit");
                 break;
             case GAME_MENU_PRINT_INPUT_DATA:
                 System.out.println("Do Ilu Zwyciestw: ");
+                break;
         }
     }
 
@@ -112,6 +116,15 @@ public class ConsoleManager {
                 break;
             case GAME_PRINTER_OPTIONS_PLAYER_2:
                 System.out.println("Player 2 option");
+                break;
+            case GAME_PRINTER_OPTIONS_WINS:
+                System.out.println("Winst Statistic: ");
+                break;
+            case GAME_PRINTER_OPTIONS_LOST:
+                System.out.println("Lost Statistic: ");
+                break;
+            case GAME_PRINTER_OPTIONS_REMIS:
+                System.out.println("Remis Statistic: ");
                 break;
         }
 

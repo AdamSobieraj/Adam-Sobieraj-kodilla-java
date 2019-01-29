@@ -1,6 +1,7 @@
 package com.kodilla.rps;
 
 import static com.kodilla.rps.ConsoleManager.*;
+import static com.kodilla.rps.ConsoleManager.gettingConsoleInputString;
 import static com.kodilla.rps.GamePrintSelection.*;
 import static com.kodilla.rps.GamePrinterOptions.*;
 
@@ -8,9 +9,8 @@ public class GameController {
 
     private Player player1;
     private Player player2;
-    private String userImput;
     private Integer playerOption;
-    private int remis;
+    private int draw;
     private boolean gameBreak;
 
     private GameRules game;
@@ -30,23 +30,25 @@ public class GameController {
             gamePrinter(GAME_MENU_PRINT_LOGO_PRINT);
             gamePrinter(GAME_MENU_PRINT_OPTIONS);
 
-            userImput = gettingConsoleInputString();
-            if (userImput.equals("x")){
+            String userInput = gettingConsoleInputString();
+
+            if (userInput.equals("x")){
                 gameBreak = true;
-            }else if (userImput.equals("n")){
+                break;
+            }else if (userInput.equals("n")){
                 player1.setPoint(0);
                 player2.setPoint(0);
+                draw = 0;
                 gameBreak = false;
             }else{
-                playerOption = Integer.parseInt(userImput);
+                playerOption = Integer.parseInt(userInput);
             }
 
             player1.setMove(playerOption);
 
             int player1Move = player1.getMove();
             int player2Move = player2.getMove();
-
-            int whoWin = game.whoWin(player1Move,player2Move);
+            System.out.println(player2Move);
 
             switch (player1Move){
                 case 1:
@@ -76,7 +78,10 @@ public class GameController {
                     gamePrinterOptions(GAME_PRINTER_OPTIONS_NOZYCE);
                     gamePrinterOptions(GAME_PRINTER_OPTIONS_PLAYER_2);
                     break;
+                    default:
+                        System.out.println("Error");
             }
+            int whoWin = game.whoWin(player1Move,player2Move);
 
             switch (whoWin){
                 case 1:
@@ -86,22 +91,26 @@ public class GameController {
                     player2.addPoint();
                     break;
                 case 3:
-                    remis++;
-                    //todo wyświetlenie informacji o remisie
+                    draw++;
             }
 
+            statistics();
 
-        }while (endGamePoints >= player1.getPoint()||endGamePoints>=player2.getPoint()||(gameBreak == true));
+        }while (endGamePoints >= player1.getPoint()||(gameBreak == true));
+
+        player1.setFails(player2.getPoint());
+        player1.setDraw(draw);
+
     }
 
-    public int getRemis() {
-        return remis;
-    }
+    private void statistics(){
+        gamePrinterOptions(GAME_PRINTER_OPTIONS_WINS);
+        objectPrinter(player1.getPoint());
+        gamePrinterOptions(GAME_PRINTER_OPTIONS_LOST);
+        objectPrinter(player2.getPoint());
+        gamePrinterOptions(GAME_PRINTER_OPTIONS_REMIS);
+        objectPrinter(draw);
 
-    public int getWins() {
-        return player1.getPoint();
-    }
-    public int getFails() {
-        return player2.getPoint();
+
     }
 }

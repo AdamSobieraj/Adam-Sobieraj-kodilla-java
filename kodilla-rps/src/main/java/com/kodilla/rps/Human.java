@@ -2,15 +2,13 @@ package com.kodilla.rps;
 
 public class Human extends Player{
 
-    private Integer moveOfUser;
-
     public Human(String name, String surname) {
         super(name, surname);
     }
 
     @Override
     public int getMove() {
-        return moveOfUser;
+        return move;
     }
 
     @Override
@@ -27,6 +25,7 @@ public class Human extends Player{
 
     @Override
     public String toString() {
-        return "\n\nName: " + getName() + "\nSurname: " + getSurname() + "\nScore: " + getPoint();
+        return "\n\nName: " + getName() + "\nSurname: " + getSurname() + "\nScore: " + getPoint()
+                + "\nFails: " + getFails()+ "\nDraw: " + getDraw();
     }
 }

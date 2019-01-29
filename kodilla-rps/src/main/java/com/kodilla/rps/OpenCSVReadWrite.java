@@ -34,7 +34,10 @@ public class OpenCSVReadWrite {
 
             List<String[]> data = new ArrayList<String[]>();
             for (Human tmp2: createNewList){
-                data.add(new String[] {tmp2.getName(),tmp2.getSurname(),Integer.toString(tmp2.getPoint())});
+                data.add(new String[] {tmp2.getName(),tmp2.getSurname(),
+                        Integer.toString(tmp2.getPoint()),
+                        Integer.toString(tmp2.getFails()),
+                        Integer.toString(tmp2.getDraw())});
             }
 
             writer.writeAll(data);
@@ -60,6 +63,9 @@ public class OpenCSVReadWrite {
                 records = csvReader.readAll();
                 for (String[] record : records) {
                     fromBookPerson  = new Human(record[0],record[1]);
+                    fromBookPerson.setPoint(Integer.parseInt(record[2]));
+                    fromBookPerson.setFails(Integer.parseInt(record[3]));
+                    fromBookPerson.setDraw(Integer.parseInt(record[4]));
                     readSet.add(fromBookPerson);
                 }
             }catch (IOException e) {
