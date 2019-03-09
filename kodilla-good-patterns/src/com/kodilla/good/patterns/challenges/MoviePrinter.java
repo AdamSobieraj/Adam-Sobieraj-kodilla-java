@@ -12,7 +12,9 @@ public class MoviePrinter {
                 .flatMap(entry -> entry.getValue().stream())
                 .collect(Collectors.joining("  _!_  "));
 
+        System.out.println("The print");
         System.out.println(moviesToDisplay);
+
     }
 
 }
