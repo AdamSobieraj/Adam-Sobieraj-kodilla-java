@@ -1,4 +1,4 @@
-package Task2.Order;
+package com.kodilla.good.patterns.challenges.Task2.Order;
 
 public class OrderProcessResult {
     private final Order order;

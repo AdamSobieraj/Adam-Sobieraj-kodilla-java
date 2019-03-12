@@ -1,7 +1,7 @@
-package Task2.Order;
+package com.kodilla.good.patterns.challenges.Task2.Order;
 
-import Task2.Order.OrderInterfaces.InformationService;
-import Task2.ProgramData.UserOfOrder;
+import com.kodilla.good.patterns.challenges.Task2.Order.OrderInterfaces.InformationService;
+import com.kodilla.good.patterns.challenges.Task2.ProgramData.UserOfOrder;
 
 public class UserInfoService  implements InformationService {
 

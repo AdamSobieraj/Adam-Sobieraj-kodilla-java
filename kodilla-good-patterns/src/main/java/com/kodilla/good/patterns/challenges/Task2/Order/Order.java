@@ -1,7 +1,7 @@
-package Task2.Order;
+package com.kodilla.good.patterns.challenges.Task2.Order;
 
-import Task2.ProgramData.Product;
-import Task2.ProgramData.UserOfOrder;
+import com.kodilla.good.patterns.challenges.Task2.ProgramData.Product;
+import com.kodilla.good.patterns.challenges.Task2.ProgramData.UserOfOrder;
 
 import java.time.LocalDate;
 

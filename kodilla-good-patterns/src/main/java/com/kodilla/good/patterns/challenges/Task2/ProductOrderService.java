@@ -1,7 +1,7 @@
-package Task2;
+package com.kodilla.good.patterns.challenges.Task2;
 
-import Task2.Order.*;
-import Task2.Order.OrderInterfaces.*;
+import com.kodilla.good.patterns.challenges.Task2.Order.*;
+import com.kodilla.good.patterns.challenges.Task2.Order.OrderInterfaces.*;
 
 public class ProductOrderService {
 

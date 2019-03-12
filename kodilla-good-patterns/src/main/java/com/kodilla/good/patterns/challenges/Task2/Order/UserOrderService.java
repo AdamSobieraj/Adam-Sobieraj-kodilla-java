@@ -1,6 +1,6 @@
-package Task2.Order;
+package com.kodilla.good.patterns.challenges.Task2.Order;
 
-import Task2.Order.OrderInterfaces.OrderService;
+import com.kodilla.good.patterns.challenges.Task2.Order.OrderInterfaces.OrderService;
 
 import java.time.LocalDate;
 

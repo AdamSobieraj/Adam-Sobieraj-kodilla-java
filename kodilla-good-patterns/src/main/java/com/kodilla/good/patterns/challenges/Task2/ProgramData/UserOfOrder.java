@@ -1,4 +1,4 @@
-package Task2.ProgramData;
+package com.kodilla.good.patterns.challenges.Task2.ProgramData;
 
 public class UserOfOrder {
 

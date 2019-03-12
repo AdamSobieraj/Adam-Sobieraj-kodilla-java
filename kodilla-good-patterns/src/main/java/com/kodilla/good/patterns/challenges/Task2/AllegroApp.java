@@ -1,7 +1,7 @@
-package Task2;
+package com.kodilla.good.patterns.challenges.Task2;
 
-import Task2.DataForTesting.OrderRequestFromUser;
-import Task2.Order.*;
+import com.kodilla.good.patterns.challenges.Task2.DataForTesting.OrderRequestFromUser;
+import com.kodilla.good.patterns.challenges.Task2.Order.*;
 
 public class AllegroApp {
 

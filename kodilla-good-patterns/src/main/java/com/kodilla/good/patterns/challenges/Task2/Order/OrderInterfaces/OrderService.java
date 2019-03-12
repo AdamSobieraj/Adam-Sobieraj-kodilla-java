@@ -1,7 +1,7 @@
-package Task2.Order.OrderInterfaces;
+package com.kodilla.good.patterns.challenges.Task2.Order.OrderInterfaces;
 
-import Task2.Order.Order;
-import Task2.Order.RequestForOrder;
+import com.kodilla.good.patterns.challenges.Task2.Order.Order;
+import com.kodilla.good.patterns.challenges.Task2.Order.RequestForOrder;
 
 public interface OrderService {
     public Order order(RequestForOrder requestForOrder);
