@@ -19,10 +19,9 @@ import static java.util.stream.Collectors.joining;
 
 public final class TravelPlan implements Comparable<TravelPlan>{
 
-    public static final long INTERVAL_MINUTES = 60L;
+    public static final long INTERVAL_IN_MINUTES = 60L;
 
     private final List<Flight> flights;
-    // derived
     private final Airport from;
     private final Airport to;
     private final LocalDateTime departure;
@@ -93,19 +92,11 @@ public final class TravelPlan implements Comparable<TravelPlan>{
     }
 
     public String toFineString() {
-        return ">> Travel plan from " + from.getCity() + " to " + to.getCity() + " <<" +
+        return "\n" + ">> Travel plan from " + from.getCity() + " to " + to.getCity() + " <<" +
                 flights.stream()
-                        .map(f -> "\n\t" + f.toString().replace("\n","\n\t"))
-                        .collect(joining("\n", "\n", "\n\n")) +
+                        .map(f -> "\t" + f.toString().replace("\n","\n\t"))
+                        .collect(joining("\n", "\n", "\n")) +
                 "Total travel time: " + Flight.formatFlightDuration(duration);
-    }
-
-    @Override
-    public String toString() {
-        return  "flights=" + flights +
-                ", duration=" + duration +
-                ", from=" + from +
-                ", to=" + to;
     }
 
     @Override

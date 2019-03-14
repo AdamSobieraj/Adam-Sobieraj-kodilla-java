@@ -94,25 +94,25 @@ public final class Flight implements Comparable<Flight> {
 
     @Override
     public String toString() {
-        return   "from=" + from +
-                ", to=" + to +
-                ", departure=" + departure +
-                ", duration=" + duration +
-                ", formattedDuration='" + formattedDuration + '\'' +
-                ", arrival=" + arrival;
+        return   "from= " + from +
+                ", to= " + to +
+                ", departure= " + departure +
+                ", duration= " + duration +
+                ", formattedDuration= '" + formattedDuration + '\'' +
+                ", arrival= " + arrival;
     }
 
     @Override
     public int compareTo(Flight o) {
-        final int EQUAL = 0;
+        final int EQUALS_TO = 0;
 
-        if (this == o) return EQUAL;
+        if (this == o) return EQUALS_TO;
         int comparison = this.from.compareTo(o.from);
-        if (comparison != EQUAL) { return comparison; }
+        if (comparison != EQUALS_TO) { return comparison; }
         comparison = this.to.compareTo(o.to);
-        if (comparison != EQUAL) { return comparison; }
+        if (comparison != EQUALS_TO) { return comparison; }
         comparison = this.departure.compareTo(o.departure);
-        if (comparison != EQUAL) { return comparison; }
+        if (comparison != EQUALS_TO) { return comparison; }
         return this.duration.compareTo(o.duration);
     }
 }

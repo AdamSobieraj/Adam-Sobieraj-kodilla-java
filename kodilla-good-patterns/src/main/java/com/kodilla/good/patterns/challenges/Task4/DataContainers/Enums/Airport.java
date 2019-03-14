@@ -25,7 +25,7 @@ public enum Airport {
     }
 
     public String toFineString() {
-        return cityOfAirport + " " + nameOfAirport + " " + '(' + name() + ')';
+        return cityOfAirport + " " + nameOfAirport;
     }
 
 }

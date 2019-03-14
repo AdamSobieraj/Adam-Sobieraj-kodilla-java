@@ -6,23 +6,23 @@ import com.kodilla.good.patterns.challenges.Task4.DataContainers.Enums.ConnectTy
 import java.time.LocalDate;
 
 public final class InfoRequest {
-    private final ConnectType conType;
+    private final ConnectType connectionType;
     private final Airport from;
     private final Airport to;
     private final Airport via;
     private final LocalDate travelDate;
 
-    public InfoRequest(final ConnectType conType, final Airport from, final Airport to, final Airport via,
+    public InfoRequest(final ConnectType connectionType, final Airport from, final Airport to, final Airport via,
                        final LocalDate travelDate) {
-        this.conType = conType;
+        this.connectionType = connectionType;
         this.from = from;
         this.to = to;
         this.via = via;
         this.travelDate = travelDate;
     }
 
-    public ConnectType getConType() {
-        return conType;
+    public ConnectType getConnectionType() {
+        return connectionType;
     }
 
     public Airport getFrom() {
@@ -46,7 +46,7 @@ public final class InfoRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InfoRequest that = (InfoRequest) o;
-        if (conType != that.conType) return false;
+        if (connectionType != that.connectionType) return false;
         if (from != that.from) return false;
         if (to != that.to) return false;
         if (via != that.via) return false;
@@ -55,7 +55,7 @@ public final class InfoRequest {
 
     @Override
     public int hashCode() {
-        return  conType.hashCode()+
+        return  connectionType.hashCode()+
                 from.hashCode() +
                 to.hashCode() +
                 via.hashCode() +
@@ -64,7 +64,7 @@ public final class InfoRequest {
 
     @Override
     public String toString() {
-        return  "  conType= " + conType +
+        return  "  connectionType= " + connectionType +
                 ", from= " + from +
                 ", to= " + to +
                 ", via= " + via +
