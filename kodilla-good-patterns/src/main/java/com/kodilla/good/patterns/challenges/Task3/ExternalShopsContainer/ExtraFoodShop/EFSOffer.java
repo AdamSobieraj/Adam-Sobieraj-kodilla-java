@@ -30,13 +30,6 @@ public class EFSOffer {
     }
 
     @Override
-    public int hashCode() {
-        int result;
-        result = productName.hashCode();
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "productName= '" +  productName + '\'' +
                 ", measure= '" + measure + '\'' +

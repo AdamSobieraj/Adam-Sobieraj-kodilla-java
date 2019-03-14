@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface SupplyService {
 
-    public CompanyCointainer getProducer();
+     CompanyCointainer getProducer();
 
-    public List<ProductOffer> getOffers();
+     List<ProductOffer> getOffers();
 
-    public OrderResult process(Order order);
+     OrderResult process(Order order);
 
 }
