@@ -3,7 +3,6 @@ package com.kodilla.exception.main;
 import com.kodilla.exception.io.FileReader;
 import com.kodilla.exception.io.FileReaderException;
 import com.kodilla.exception.io.FileReaderWithoutHandling;
-import com.sun.deploy.net.FailedDownloadException;
 
 public class ExceptionModuleRunner {
 
