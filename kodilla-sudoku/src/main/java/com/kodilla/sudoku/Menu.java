@@ -1,5 +1,6 @@
 package com.kodilla.sudoku;
 
+import static com.kodilla.sudoku.CloseProgram.clodeApp;
 import static com.kodilla.sudoku.ImputStringConvert.*;
 import static com.kodilla.sudoku.Printer.*;
 
@@ -21,7 +22,7 @@ public class Menu {
                 gameStart();
                 break;
             case 2:
-                System.exit(0);
+                clodeApp();
                 break;
 
             default:
@@ -37,11 +38,14 @@ public class Menu {
             gamePrint();
             String userInput = gettingConsoleImputString();
 
-            if (userInput != "SUDOKU"){
+
+            if (!userInput.equals("SUDOKU") && !userInput.equals("X") ){
                 convert(userInput);
 
                 sudokuBoard.sudokuNewBoardFill(convert.getColumn(), convert.getRow(), convert.getValue());
-            }else {
+                sudokuDisplay(sudokuBoard.getSudokuMatrix());
+            }else if (userInput.equals("SUDOKU")){
+                System.out.println("test");
                 SudokuAlgorithm sudokuAlgorithm = new SudokuAlgorithm(sudokuBoard.getSudokuMatrix());
                 sudokuDisplay(sudokuAlgorithm.getBoard());
 
@@ -51,6 +55,8 @@ public class Menu {
                 }else {
                     error();
                 }
+            }else if (userInput.equals("X")){
+                clodeApp();
             }
 
 

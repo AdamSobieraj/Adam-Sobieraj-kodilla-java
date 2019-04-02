@@ -18,8 +18,6 @@ public class SudokuAlgorithm {
         }
     }
 
-
-
     //Row Check
     private boolean isInRow(int row, int number){
         for (int i=0; i< ROW; i++){

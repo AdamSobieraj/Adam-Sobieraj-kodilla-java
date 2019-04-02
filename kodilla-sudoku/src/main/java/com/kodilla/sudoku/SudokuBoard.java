@@ -7,15 +7,8 @@ public class SudokuBoard {
 
     private static int[][] sudokuMatrix = new int[COLUMN][ROW];
 
-    private static int column;
-    private static int row;
-    private static int value;
-
     public static void sudokuNewBoardFill(int columnn, int roww, int valuee) {
-        column = columnn;
-        row = roww;
-        value = valuee;
-
+        sudokuMatrix[columnn][roww] = valuee;
     }
 
     public static int[][] getSudokuMatrix() {

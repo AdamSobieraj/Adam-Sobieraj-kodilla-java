@@ -15,6 +15,8 @@ public class Printer{
     }
 
     public static void gamePrint(){
+        System.out.println("Imput SUDOKU to calculate");
+        System.out.println("Imput X to close");
         System.out.println("Imput data as : Column, Row, Value ");
     }
 
@@ -24,10 +26,6 @@ public class Printer{
 
     public static void error(){
         System.out.println("Unsovable");
-    }
-
-    public static void fastPrint(int tmp){
-        System.out.println(tmp);
     }
 
     public static Integer gettingConsoleImputIntiger(){

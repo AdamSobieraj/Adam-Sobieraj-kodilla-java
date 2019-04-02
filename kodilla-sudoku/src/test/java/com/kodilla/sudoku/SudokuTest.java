@@ -1,9 +1,9 @@
 package com.kodilla.sudoku;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
+import static com.kodilla.sudoku.ImputStringConvert.convert;
 import static com.kodilla.sudoku.Printer.error;
 import static com.kodilla.sudoku.Printer.solved;
 import static com.kodilla.sudoku.Printer.sudokuDisplay;
@@ -24,21 +24,21 @@ public class SudokuTest {
 
         };
 
-    public static int[][] GRID_RES = {
-            {9,3,4,1,7,2,6,8,5},
-            {7,6,5,8,9,3,2,4,1},
-            {8,1,2,6,4,5,3,9,7},
-            {4,2,9,5,8,1,7,6,3},
-            {6,5,8,7,3,9,1,2,4},
-            {1,7,3,4,2,6,8,5,9},
-            {2,9,7,3,5,8,4,1,6},
-            {5,4,6,2,1,7,9,3,8},
-            {3,8,1,9,6,4,5,7,2},
-    };
+        public static int[][] GRID_RES = {
+                {9,3,4,1,7,2,6,8,5},
+                {7,6,5,8,9,3,2,4,1},
+                {8,1,2,6,4,5,3,9,7},
+                {4,2,9,5,8,1,7,6,3},
+                {6,5,8,7,3,9,1,2,4},
+                {1,7,3,4,2,6,8,5,9},
+                {2,9,7,3,5,8,4,1,6},
+                {5,4,6,2,1,7,9,3,8},
+                {3,8,1,9,6,4,5,7,2},
+        };
 
 
     @Test
-    public void testConnect(){
+    public void testConvert(){
         //Given
         //When
         SudokuAlgorithm sudokuAlgorithm = new SudokuAlgorithm(GRID_TO_SOLVE);
@@ -52,10 +52,30 @@ public class SudokuTest {
             error();
         }
 
-
-
-        sudokuDisplay(sudokuAlgorithm.getBoard());
         //Then
         Assert.assertArrayEquals(GRID_RES,sudokuAlgorithm.getBoard());
     }
+
+    @Test
+    public void testConvertString(){
+        //Given
+        ImputStringConvert imputStringConvert = new ImputStringConvert();
+        String testString = "1,2,3";
+        Integer columntForTest = 1;
+        Integer rowForTest = 2;
+        Integer valueForTest = 3;
+
+        //When
+        convert(testString);
+
+        Integer columntAfterTest = imputStringConvert.getColumn() ;
+        Integer rowAfterTest = imputStringConvert.getRow();
+        Integer valueAfterTest = imputStringConvert.getValue();
+
+        //Then
+        Assert.assertEquals(columntForTest, columntAfterTest );
+        Assert.assertEquals(rowForTest, rowAfterTest );
+        Assert.assertEquals(valueForTest, valueAfterTest );
+    }
+
 }
