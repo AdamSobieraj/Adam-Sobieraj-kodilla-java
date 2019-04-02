@@ -1,31 +1,24 @@
 package com.kodilla.sudoku;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SudokuBoard {
 
-    public List<SudokuRow> sudokuRow = new ArrayList<>();
+    public static final int ROW = 9;
+    public static final int COLUMN = 9;
 
-    @Override
-    public String toString() {
-        String result = "";
-        for(int i = 0; i < 10; i++){
+    private static int[][] sudokuMatrix = new int[COLUMN][ROW];
 
-            for(int j = 0; j < 10; j++) {
-                if(i==0 && j==0) {
-                    result += " " + "   ";
-                }
-                else if(i==0) {
-                    result += "_" + "   ";
-                }
-                else if(j==0) {
-                    result += " " + " | ";
-                }
-                else result += "_" + " | ";
-            }
-            result += "\n";
-        }
-        return result;
+    private static int column;
+    private static int row;
+    private static int value;
+
+    public static void sudokuNewBoardFill(int columnn, int roww, int valuee) {
+        column = columnn;
+        row = roww;
+        value = valuee;
+
+    }
+
+    public static int[][] getSudokuMatrix() {
+        return sudokuMatrix;
     }
 }
