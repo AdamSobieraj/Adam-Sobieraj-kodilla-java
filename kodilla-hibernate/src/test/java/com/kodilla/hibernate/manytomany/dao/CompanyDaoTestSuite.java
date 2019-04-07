@@ -10,11 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -60,6 +65,53 @@ public class CompanyDaoTestSuite {
         //} catch (Exception e) {
         //    //do nothing
         //}
+    }
+
+
+    @Test
+    public void testNamedQueries() {
+        //Given
+        Employee jimTom = new Employee("Jim", "Tom");
+        Employee tojmTom = new Employee("Tojm", "Tom");
+        Employee lizKowalsky = new Employee("Liz", "Kowalsky");
+
+        Company companySTAS = new Company("companySTAS");
+        Company companyJC = new Company("companyJC");
+        Company companyGim = new Company("companyGim");
+
+        companySTAS.getEmployees().add(jimTom);
+        companyJC.getEmployees().add(tojmTom);
+        companyJC.getEmployees().add(lizKowalsky);
+        companyGim.getEmployees().add(jimTom);
+        companyGim.getEmployees().add(lizKowalsky);
+
+        jimTom.getCompanies().add(companySTAS);
+        jimTom.getCompanies().add(companyGim);
+        tojmTom.getCompanies().add(companyJC);
+        lizKowalsky.getCompanies().add(companyJC);
+        lizKowalsky.getCompanies().add(companyGim);
+
+        companyDao.save(companySTAS);
+        int softwareMachineId = companySTAS.getId();
+        companyDao.save(companyJC);
+        int dataMaestersId = companyJC.getId();
+        companyDao.save(companyGim);
+        int greyMatterId = companyGim.getId();
+
+        //When
+        List<Company> threeFirstLetters = companyDao.retrieveWithThreeFirstLetters("com");
+        List<Employee> lastname = employeeDao.retrieveWithLastname("Jim");
+
+        //Than
+        try {
+            Assert.assertEquals(1, threeFirstLetters.size());
+            Assert.assertEquals(1, lastname.size());
+            //CleanUp
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        } catch (Exception e){
+        }
     }
 }
 
