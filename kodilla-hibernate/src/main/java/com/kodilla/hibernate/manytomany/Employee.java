@@ -6,15 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedQueries({
+
         @NamedQuery(
-                name = "Employee.retrieveWithLastname",
+                name = "Employee.retrieveEmployeeWithName",
                 query = "FROM Employee WHERE lastname = :LASTNAME"
-        ),
-        @NamedQuery(
-                name = "Employee.retrieveWithAnyLettersLastname",
-                query = "FROM Employee WHERE lastname LIKE CONCAT('%', :ARG ,'%')"
-        ),
+        )
 })
+
+@NamedNativeQuery(
+        name = "Employee.getEmployeeName",
+        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE CONCAT('%', :LASTNAME , '%')",
+        resultClass = Employee.class
+)
+
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -69,10 +73,8 @@ public class Employee {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
-            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID",
-                    referencedColumnName = "EMPLOYEE_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID",
-                    referencedColumnName = "COMPANY_ID")}
+            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
     )
     public List<Company> getCompanies() {
         return companies;

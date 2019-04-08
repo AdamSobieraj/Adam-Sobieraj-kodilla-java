@@ -9,7 +9,9 @@ import java.util.List;
 
 public interface EmployeeDao extends CrudRepository<Employee, Integer> {
     @Query
-    List<Employee> retrieveWithLastname(@Param("LASTNAME") String lastname);
-    @Query
-    List<Employee> retrieveWithAnyLettersLastname(@Param("ARG") String lastname);
+    List<Employee> retrieveEmployeeWithName(@Param("LASTNAME") String name);
+
+    @Query(nativeQuery = true)
+    List<Employee> getEmployeeName(@Param("LASTNAME") String name);
+
 }

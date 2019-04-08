@@ -69,49 +69,51 @@ public class CompanyDaoTestSuite {
 
 
     @Test
-    public void testNamedQueries() {
+    public void testNameSearch(){
         //Given
-        Employee jimTom = new Employee("Jim", "Tom");
-        Employee tojmTom = new Employee("Tojm", "Tom");
-        Employee lizKowalsky = new Employee("Liz", "Kowalsky");
+        Employee tomTom = new Employee("Tom", "Tom");
+        Employee tomekCom = new Employee("Tomek", "Com");
+        Employee lizKowalski = new Employee("Liz", "Kowalski");
 
-        Company companySTAS = new Company("companySTAS");
-        Company companyJC = new Company("companyJC");
-        Company companyGim = new Company("companyGim");
 
-        companySTAS.getEmployees().add(jimTom);
-        companyJC.getEmployees().add(tojmTom);
-        companyJC.getEmployees().add(lizKowalsky);
-        companyGim.getEmployees().add(jimTom);
-        companyGim.getEmployees().add(lizKowalsky);
+        employeeDao.save(tomTom);
+        employeeDao.save(tomekCom);
+        employeeDao.save(lizKowalski);
 
-        jimTom.getCompanies().add(companySTAS);
-        jimTom.getCompanies().add(companyGim);
-        tojmTom.getCompanies().add(companyJC);
-        lizKowalsky.getCompanies().add(companyJC);
-        lizKowalsky.getCompanies().add(companyGim);
-
-        companyDao.save(companySTAS);
-        int softwareMachineId = companySTAS.getId();
-        companyDao.save(companyJC);
-        int dataMaestersId = companyJC.getId();
-        companyDao.save(companyGim);
-        int greyMatterId = companyGim.getId();
 
         //When
-        List<Company> threeFirstLetters = companyDao.retrieveWithThreeFirstLetters("com");
-        List<Employee> lastname = employeeDao.retrieveWithLastname("Jim");
+        List<Employee> lastName = employeeDao.retrieveEmployeeWithName("Tom");
 
-        //Than
-        try {
-            Assert.assertEquals(1, threeFirstLetters.size());
-            Assert.assertEquals(1, lastname.size());
-            //CleanUp
-            companyDao.deleteById(softwareMachineId);
-            companyDao.deleteById(dataMaestersId);
-            companyDao.deleteById(greyMatterId);
-        } catch (Exception e){
-        }
+        //Then
+        Assert.assertEquals(4, lastName.size());
+
+        //CleanUp
+        employeeDao.delete(tomTom);
+        employeeDao.delete(tomekCom);
+        employeeDao.delete(lizKowalski);
+    }
+
+    @Test
+    public void testCompanyStartWithSearch(){
+        //Given
+        Company companyDell = new Company("Company Dell");
+        Company bitcoins = new Company("Bitcoins");
+        Company softData = new Company("Soft Data");
+
+        companyDao.save(companyDell);
+        companyDao.save(bitcoins);
+        companyDao.save(softData);
+
+        //When
+        List<Company> nameStartedWith = companyDao.getCompanyName("Sof");
+
+        //Then
+        Assert.assertEquals(2, nameStartedWith.size());
+
+        //CleanUp
+        companyDao.delete(companyDell);
+        companyDao.delete(bitcoins);
+        companyDao.delete(softData);
     }
 }
 
