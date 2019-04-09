@@ -85,7 +85,7 @@ public class CompanyDaoTestSuite {
         List<Employee> lastName = employeeDao.retrieveEmployeeWithName("Tom");
 
         //Then
-        Assert.assertEquals(4, lastName.size());
+        Assert.assertEquals(1, lastName.size());
 
         //CleanUp
         employeeDao.delete(tomTom);
@@ -108,7 +108,7 @@ public class CompanyDaoTestSuite {
         List<Company> nameStartedWith = companyDao.getCompanyName("Sof");
 
         //Then
-        Assert.assertEquals(2, nameStartedWith.size());
+        Assert.assertEquals(1, nameStartedWith.size());
 
         //CleanUp
         companyDao.delete(companyDell);
